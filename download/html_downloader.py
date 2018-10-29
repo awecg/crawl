@@ -8,8 +8,8 @@ class HtmlDownloader(object):
             return None
 
         response = urllib2.urlopen(url)
-
+        
         if response.getcode() != 200:
             return None
-
+        
         return response.read()

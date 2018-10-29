@@ -14,3 +14,5 @@ print sys.path[0]
 
 + python3中urlparse模块和urllib模块合并，urlparse()在urllib.parse中进行调用。
 + 解决url中文编码 urllib.unquote()
++ bs4的`from_encoding='utf-8'`没乱用，得到的soup还是unicode形式的。
++ SyntaxError: Non-ASCII character '\xe5' in xxx,but no encoding declared

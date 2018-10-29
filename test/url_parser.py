@@ -1,3 +1,4 @@
+#coding=utf-8
 from bs4 import BeautifulSoup
 import re, sys
 
@@ -9,12 +10,10 @@ html_doc = """
     <a href="http://example.com/elsie" class="sister" id="link1">Elsie</a>,
     <a href="http://example.com/lacie" class="sister" id="link2">Lacie</a> and
     <a href="http://example.com/tillie" class="sister" id="link3">Tillie</a>;
-    <a href="http://example.com/中文" class="sister" id="link4">Tillie</a>;
 and they lived at the bottom of a well.
 </p>
 <p class="story">...</p>
 """
-
 
 soup = BeautifulSoup(html_doc, 'html.parser', from_encoding='utf-8')
 # print soup.prettify()

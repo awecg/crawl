@@ -24,4 +24,7 @@ class UrlManager(object):
         self.old_urls.add(new_url)
         return new_url
 
+    # def output_url(self):
+
+
 
