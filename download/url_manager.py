@@ -5,6 +5,7 @@ class UrlManager(object):
 
     def add_new_url(self, url):
         if url is None:
+            print "url is None"
             return
         if url not in self.new_urls and url not in self.old_urls:
             self.new_urls.add(url)

@@ -1,3 +1,4 @@
+#coding=utf-8
 import url_manager, html_downloader, html_parser, html_outputer
 
 
@@ -20,19 +21,22 @@ class SpiderMain(object):
                 new_urls, new_data = self.parser.parse(new_url, html_cont)
 
                 self.urls.add_new_urls(new_urls)
-                self.outputer.collect_data(new_data)
+                # self.outputer.collect_data(new_data)
 
-                if count == 1000:
+                # if count == 1000:
+                if count == 5:
                     break
 
                 count = count + 1
             except:
                 print 'craw failed'
 
-        self.outputer.output_html()
+        # self.outputer.output_html()
 
 if __name__ == "__main__":
-    root_url = "http://baike.baidu.com/item/Python"
+    root_url = "http://baike.baidu.com/item/Java"
     obj_spider = SpiderMain()
     obj_spider.craw(root_url)
 
+    # for url in obj_spider.urls.old_urls:
+        # print type(url.encode('utf-8')), url.encode('utf-8')

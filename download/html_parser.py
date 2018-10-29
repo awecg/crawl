@@ -1,5 +1,5 @@
 import re
-import urlparse
+import urlparse, urllib
 
 from bs4 import BeautifulSoup
 
@@ -34,7 +34,10 @@ class HtmlParser(object):
         # links = soup.find_all(re.compile(r"/item/\d+\.htm"))
         links = soup.find_all('a', href=re.compile(r"/item/"))
         for link in links:
-            new_url = link['href']
+            # new_url = link['href']
+            # 将link['href']--unicode格式字符串-encode--
+            new_url = urllib.unquote(link['href'].encode('utf-8'))
             new_full_url = urlparse.urljoin(page_url, new_url)
+            # print type(new_full_url), new_full_url
             new_urls.add(new_full_url)
         return new_urls
