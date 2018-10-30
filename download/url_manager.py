@@ -1,3 +1,4 @@
+import sys
 class UrlManager(object):
     def __init__(self):
         self.new_urls = set()
@@ -24,7 +25,12 @@ class UrlManager(object):
         self.old_urls.add(new_url)
         return new_url
 
-    # def output_url(self):
-
-
+    def output_url(self):
+        txt = open(sys.path[0] + '\urls.md', 'w')
+        for url in self.old_urls:
+            print type(url), url
+            # txt.write(url.encode('gbk') + '\n')
+            txt.write(url + '\n')
+        txt.close()
+    
 

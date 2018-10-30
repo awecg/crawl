@@ -29,14 +29,6 @@ class HtmlParser(object):
         summary_node = soup.find('div', class_="lemma-summary")
         result['summary'] = summary_node.get_text()
 
-        # <span class="vote-count">2773</span>
-        vote_node = soup.find('span',class_="vote-count")
-        if vote_node is None:
-            print "can't find vote"
-        print vote_node
-        result['vote'] = vote_node.get_text()
-
-
         return result
 
     def _get_new_urls(self, page_url, soup):
@@ -46,7 +38,7 @@ class HtmlParser(object):
         for link in links:
             # new_url = link['href']
             # 将link['href']--unicode格式字符串-encode--
-            new_url = urllib.unquote(link['href'])
+            new_url = urllib.unquote(link['href'].encode('utf-8'))
             new_full_url = urlparse.urljoin(page_url, new_url)
             # print type(new_full_url), new_full_url
             new_urls.add(new_full_url)
